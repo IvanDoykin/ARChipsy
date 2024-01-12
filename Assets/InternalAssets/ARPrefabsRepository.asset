@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844d30444075f4a438f94f23027de70c, type: 3}
+  m_Name: ARPrefabsRepository
+  m_EditorClassIdentifier: 
+  _arPrefabs:
+  - _id: 1
+    _prefab: {fileID: 1512689450672856998, guid: 0fb7adc8b624730499f6b9a8c57ad5b8, type: 3}
+  _defaultPrefab: {fileID: 26934360091448715, guid: e4106a5a66691fd43b9271d01754bf52, type: 3}
