@@ -32,7 +32,7 @@ public class GLBContent : DynamicContent
         }
         else
         {
-            Debug.LogError($"Loading glTF{_id} failed!");
+            throw new System.Exception($"Loading glTF{_id} failed!");
         }
     }
 }

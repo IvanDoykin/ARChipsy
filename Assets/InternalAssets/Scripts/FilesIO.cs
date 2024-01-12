@@ -35,12 +35,10 @@ public static class FilesIO
 
         foreach (var file in Directory.GetFiles(Path.Combine(Application.persistentDataPath, ContentType.Marker.ToString())))
         {
-            Debug.Log("Cache: " + file);
             _markerPaths.Add(file);
         }
         foreach (var file in Directory.GetFiles(Path.Combine(Application.persistentDataPath, ContentType.Content.ToString())))
         {
-            Debug.Log("Cache: " + file);
             _contentPaths.Add(file);
         }
     }

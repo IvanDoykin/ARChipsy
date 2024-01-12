@@ -12,8 +12,7 @@ public class ContentDownloader : MonoBehaviour, IConnection
 
     public bool IsDownloaded(ContentInfo content)
     {
-        Debug.Log(FilesIO.GetContentPath(content));
-
+        Debug.Log($"Check on download: {FilesIO.GetContentPath(content)}.");
         return File.Exists(FilesIO.GetContentPath(content));
     }
 
@@ -27,14 +26,11 @@ public class ContentDownloader : MonoBehaviour, IConnection
         string url = content.Link;
 
         string contentSavePath = FilesIO.GetContentDirectoryPath(content);
-        Debug.Log(contentSavePath);
-
         if (!Directory.Exists(Path.GetDirectoryName(contentSavePath)))
         {
             Directory.CreateDirectory(Path.GetDirectoryName(contentSavePath));
         }
         contentSavePath = FilesIO.GetContentPath(content);
-        Debug.Log(contentSavePath);
 
         var request = new UnityWebRequest(url);
         request.method = UnityWebRequest.kHttpVerbGET;

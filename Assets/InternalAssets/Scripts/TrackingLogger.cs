@@ -1,9 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
 
-public class RuntimeSmth : MonoBehaviour
+public class TrackingLogger : MonoBehaviour
 {
     [SerializeField] private ARTrackedImageManager _trackedImageManager;
     [SerializeField] private TextMeshProUGUI _log;
@@ -23,16 +22,6 @@ public class RuntimeSmth : MonoBehaviour
         foreach (var newImage in eventArgs.added)
         {
             _log.text = newImage.referenceImage.name;
-        }
-
-        foreach (var updatedImage in eventArgs.updated)
-        {
-            // Handle updated event
-        }
-
-        foreach (var removedImage in eventArgs.removed)
-        {
-            // Handle removed event
         }
     }
 }

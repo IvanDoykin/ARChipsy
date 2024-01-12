@@ -7,7 +7,6 @@ public class Music : MonoBehaviour
 
     [SerializeField] private AudioSource _music;
 
-    [SerializeField] private AudioClip _loading;
     [SerializeField] private AudioClip _idle;
     [SerializeField] private AudioClip _fail;
 
@@ -19,13 +18,6 @@ public class Music : MonoBehaviour
         }
         Instance = this;
         PlayIdle();
-    }
-
-    public void PlayLoading()
-    {
-        _music.Stop();
-        _music.clip = _loading;
-        _music.Play();
     }
 
     public void PlayIdle()

@@ -20,7 +20,7 @@ public class MarkersLoader : MonoBehaviour
     {
         ARSession.stateChanged += (ARSessionStateChangedEventArgs state) =>
         {
-            Debug.Log(state.state);
+            Debug.Log($"ARSession state: {state.state}.");
             if (!_initialized && (state.state == ARSessionState.SessionTracking || state.state == ARSessionState.SessionInitializing))
             {
                 _initialized = true;
@@ -33,19 +33,10 @@ public class MarkersLoader : MonoBehaviour
         };
     }
 
-    private void Update()
-    {
-        Debug.Log("U1 " + _trackedImageManager.enabled);
-        Debug.Log("U2 " + _trackedImageManager.subsystem.running);
-        Debug.Log("U3 " + _trackedImageManager.subsystem.imageLibrary.count);
-    }
-
     private IEnumerator LoadMarkers()
     {
-        Debug.Log("chick");
         foreach (var markerPath in FilesIO.MarkerPaths)
         {
-            Debug.Log($"Add {markerPath}.");
             yield return StartCoroutine(AddImage(LoadImageByPath(markerPath), FilesIO.GetFilenameByPath(markerPath)));
         }
     }
@@ -90,12 +81,10 @@ public class MarkersLoader : MonoBehaviour
     {
         if (_trackedImageManager.referenceLibrary is MutableRuntimeReferenceImageLibrary mutableLibrary)
         {
-            Debug.Log($"Add marker {imageName}.");
             var job = mutableLibrary.ScheduleAddImageWithValidationJob(imageToAdd, imageName, _markerSize);
-            Debug.Log("1: job = " + job.status);
             yield return new WaitUntil(() => job.jobHandle.IsCompleted);
-            Debug.Log("2: job = " + job.status);
-            Debug.Log("" + _trackedImageManager.subsystem.running);
+            Debug.Log($"Job status: {job.status}.");
+            Debug.Log($"Tracking subsistem check: {_trackedImageManager.subsystem.running}.");
         }
     }
 }

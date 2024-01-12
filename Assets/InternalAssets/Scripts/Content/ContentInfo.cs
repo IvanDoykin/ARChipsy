@@ -1,12 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-public enum ContentType
-{
-    Marker,
-    Content
-}
-
 [Serializable]
 public class ContentInfo
 {
